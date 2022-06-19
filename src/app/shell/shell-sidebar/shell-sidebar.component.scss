@@ -21,6 +21,28 @@ $white: #fff;
     background-size: cover;
     text-align: right;
     min-height: 160px;
+    .user-upper-section{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .user-image{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        overflow: hidden;
+      }
+      .user-name{
+        line-height: 23px;
+        font-size: 23px;
+        font-weight: 700;
+        color: #fff;
+      }
+    }
+    .user-lower-section{
+      text-align: right;
+      color: #fff;
+    }
   }
 
   &__pages-section {

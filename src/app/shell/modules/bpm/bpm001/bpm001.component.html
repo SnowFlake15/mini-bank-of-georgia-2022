@@ -1,0 +1,35 @@
+<form class="ui segments client-registration " [formGroup]="registerUserForm">
+  <div class="ui segment">
+    <h1>კლიენტის რეგისტრაცია</h1>
+  </div>
+  <div class="ui segment">
+    <div class="ui form">
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="firstName">სახელი</label>
+          <input formControlName="firstName" type="text" id="firstName">
+          <bg-validators [form]="registerUserForm" controlName="firstName"></bg-validators>
+        </div>
+      </div>
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="lastName">გვარი</label>
+          <input formControlName="lastName" type="text" id="lastName">
+          <bg-validators [form]="registerUserForm" controlName="lastName"></bg-validators>
+
+        </div>
+      </div>
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="plusPoints">Plus ქულები</label>
+          <input formControlName="plusPoints" type="number" id="plusPoints">
+          <bg-validators [form]="registerUserForm" controlName="plusPoints"></bg-validators>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui segment">
+    <button type="submit" class="ui blue icon button" (click)="onSubmit()" routerLink="../../krn">რეგისტრაცია</button>
+  </div>
+</form>

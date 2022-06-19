@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Directive, OnInit} from '@angular/core';
+import {AuthService} from '../../shared/auth/auth.service';
 
 @Component({
   selector: 'bg-shell-header',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShellHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
+  onLogOut(){
+    this.authService.logOut();
+  }
 }

@@ -1,0 +1,32 @@
+<div class="ui segments">
+  <div class="ui segment">
+    <h1>ანგარიშები</h1>
+  </div>
+  <div class="ui segment">
+    <div class="ui segments accounts">
+      <div class="table-header">
+        <span>ანგარიშები</span>
+        <button class="ui icon button">
+          <i class="plus icon" routerLink="create"> </i>
+        </button>
+      </div>
+      <table>
+        <div *ngIf="!accounts.length">ჩანაწერი არ მოიძებნა</div>
+        <thead>
+          <th>მფლობელი</th>
+          <th>სახელი</th>
+          <th>თანხა</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let account of accounts">
+            <td class="left aligned">{{account.clientFirstName}} {{account.clientLastName}}</td>
+            <td class="left aligned">{{account.accountName}}</td>
+            <td class="left aligned">{{account.amount | rounder}}</td>
+            <td class="left aligned" (click)="onDeleteAccount(account.accountKey)"><i class="trash button icon"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

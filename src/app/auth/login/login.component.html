@@ -1,0 +1,26 @@
+<form class="ui form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <div class="field">
+    <div class="ui left icon input">
+      <i _ngcontent-okh-c41="" class="user icon"></i>
+      <input  type="text" placeholder="მომხმარებალი" formControlName="userName">
+    </div>
+    <bg-validators controlName="userName" [form]="loginForm">aa</bg-validators>
+  </div>
+  <div class="field">
+    <div class="ui left icon input ">
+      <i _ngcontent-okh-c41="" class="lock icon"></i>
+      <input type="password" placeholder="პაროლი" formControlName="password">
+    </div>
+    <bg-validators controlName="password" [form]="loginForm">aa</bg-validators>
+  </div>
+  <div class="auth__actions">
+    <a routerLink="/auth/register">
+      <span class="ui orange text">რეგისტრაცია</span>
+    </a>
+    <button type="submit" class="ui basic orange right floated button">
+      <i class="sign in alternate icon"></i>
+      შესვლა </button>
+  </div>
+</form>
+<!--<bg-alert *ngIf="error" [error]="error" (closeClick)="onCloseError()"></bg-alert>-->
+<!--<ng-template bgPlaceHolder></ng-template>-->

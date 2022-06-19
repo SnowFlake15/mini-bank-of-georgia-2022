@@ -1,0 +1,48 @@
+<form class="ui segments" [formGroup]="transferForm">
+  <div class="ui segment">
+    <h1>თანხის გადარიცხვა</h1>
+  </div>
+  <div class="ui segment">
+    <div class="ui form ">
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="senderAccountKey">გამგზავნი ანგარიში</label>
+          <select formControlName="senderAccountKey" id="senderAccountKey">
+            <option value="" >აირჩიე</option>
+            <option value="{{account.accountKey}}" *ngFor="let account of clientAccounts">{{account.accountKey}}- {{account.amount | rounder}}GEL ({{account.accountName}}) </option>
+          </select>
+          <bg-validators [form]="transferForm" controlName="senderAccountKey"></bg-validators>
+        </div>
+
+      </div>
+
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="receiverAccountKey">მიმღები ანგარიში</label>
+          <select formControlName="receiverAccountKey" id="receiverAccountKey">
+            <option value="" >აირჩიე</option>
+            <option value="{{account.accountKey}}" *ngFor="let account of accounts">{{account.accountKey}}- {{account.amount | rounder}}GEL ({{account.accountName}}) </option>
+          </select>
+          <bg-validators [form]="transferForm" controlName="receiverAccountKey"></bg-validators>
+        </div>
+      </div>
+
+
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="amount">თანხა</label>
+          <input type="number" formControlName="amount" id="amount">
+          <bg-validators [form]="transferForm" controlName="amount"></bg-validators>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="ui segment">
+    <button type='submit'  (click)="onTransfer()" class="ui orange icon button">
+      გადარიცხვა
+    </button>
+  </div>
+
+</form>

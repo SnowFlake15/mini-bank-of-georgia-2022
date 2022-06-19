@@ -1,0 +1,5 @@
+<div *ngIf="get(controlName).invalid && get(controlName).touched" >
+  <ng-container *ngFor="let errorMessage of errors(controlName)">
+    <span class="ui red text">{{errorMessage}}</span>
+  </ng-container>
+</div>

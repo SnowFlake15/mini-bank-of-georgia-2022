@@ -1,0 +1,45 @@
+<form class="ui form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <div class="field">
+    <div class="ui left icon input">
+      <i _ngcontent-okh-c41="" class="user icon"></i>
+      <input  type="text" placeholder="სახელი" formControlName="name">
+    </div>
+    <bg-validators controlName="name" [form]="registerForm"></bg-validators>
+  </div>
+  <div class="field">
+    <div class="ui left icon input">
+      <i _ngcontent-okh-c41="" class="user icon"></i>
+      <input  type="text" placeholder="მომხმარებალი" formControlName="userName">
+    </div>
+    <bg-validators controlName="userName" [form]="registerForm"></bg-validators>
+  </div>
+  <div class="field">
+    <div class="ui left icon input ">
+      <i _ngcontent-okh-c41="" class="lock icon"></i>
+      <input type="password" placeholder="პაროლი" formControlName="password">
+    </div>
+    <bg-validators controlName="password" [form]="registerForm"></bg-validators>
+  </div>
+  <div class="field">
+    <div class="ui left icon input ">
+      <i _ngcontent-okh-c41="" class="lock icon"></i>
+      <input type="password" placeholder="განმეორებითი პაროლი" formControlName="repeatPassword">
+    </div>
+<!--    <p *ngIf="get('repeatPassword').invalid && get('repeatPassword').touched" class="ui red text" >-->
+<!--      <ng-container *ngFor="let errorMessage of errors('repeatPassword')">-->
+<!--        <span>{{errorMessage}}</span>-->
+<!--      </ng-container>-->
+<!--    </p>-->
+    <bg-validators controlName="repeatPassword" [form]="registerForm"></bg-validators>
+  </div>
+  <div class="auth__actions">
+    <a routerLink="/auth">
+      <span class="ui orange text">შესვლა</span>
+    </a>
+    <button type="submit" class="ui basic orange right floated button">
+      <i class="sign in alternate icon"></i>
+      შესვლა </button>
+  </div>
+
+
+</form>

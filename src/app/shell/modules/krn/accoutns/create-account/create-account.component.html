@@ -1,0 +1,26 @@
+<form class="ui segments client-registration" [formGroup]="createAccount">
+  <div class="ui segment">
+    <h1>ანგარიშის შექმნა</h1>
+  </div>
+  <div class="ui segment">
+    <div class="ui form">
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="accountName">ანგარიშის სახელი</label>
+          <input type="text" formControlName="accountName" id="accountName">
+          <bg-validators [form]="createAccount" controlName="accountName"></bg-validators>
+        </div>
+      </div>
+      <div class="ui fields">
+        <div class="nine wide field">
+          <label for="amount">თანხა</label>
+          <input type="text" formControlName="amount" id="amount">
+          <bg-validators [form]="createAccount" controlName="amount"></bg-validators>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui segment">
+    <button type="submit" (click)="onCreateAccount()" class="ui orange button">შექმნა</button>
+  </div>
+</form>
