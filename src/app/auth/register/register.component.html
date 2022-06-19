@@ -25,11 +25,6 @@
       <i _ngcontent-okh-c41="" class="lock icon"></i>
       <input type="password" placeholder="განმეორებითი პაროლი" formControlName="repeatPassword">
     </div>
-<!--    <p *ngIf="get('repeatPassword').invalid && get('repeatPassword').touched" class="ui red text" >-->
-<!--      <ng-container *ngFor="let errorMessage of errors('repeatPassword')">-->
-<!--        <span>{{errorMessage}}</span>-->
-<!--      </ng-container>-->
-<!--    </p>-->
     <bg-validators controlName="repeatPassword" [form]="registerForm"></bg-validators>
   </div>
   <div class="auth__actions">

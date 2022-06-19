@@ -3,13 +3,6 @@ import {AbstractControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'bg-validators',
-  // template: `<p *ngIf="get(controlName).invalid && get(controlName).touched" class="ui red text" >
-  //   <ng-container *ngFor="let errorMessage of errors(controlName)">
-  //     <span>{{errorMessage}}</span>
-  //     hiuh
-  //   </ng-container>
-  // </p>
-  // `,
   templateUrl: './validators.component.html',
   styleUrls: ['./validators.component.scss']
 })

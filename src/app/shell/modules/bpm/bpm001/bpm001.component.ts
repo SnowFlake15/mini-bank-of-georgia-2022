@@ -10,7 +10,6 @@ import {ClientsService} from '../../../../shared/client/clients.service';
   styleUrls: ['./bpm001.component.scss']
 })
 export class Bpm001Component implements OnInit {
-  // form: FormGroup;
   registerUserForm: FormGroup;
   constructor(private http: HttpClient, private clientsService: ClientsService) { }
 
@@ -35,15 +34,7 @@ export class Bpm001Component implements OnInit {
       return;
     }
     this.clientsService.createClient(this.registerUserForm).subscribe();
-    // this.clientsService.selectedClient
-    // console.log('-------------')
-    // console.log(this.registerUserForm.value);
     this.clientsService.selectedClient = this.registerUserForm.value;
-    // console.log('-------------')
-    // this.http.put('https://bog-angular-course-api.herokuapp.com/clients', this.registerUserForm.value)
-    //   .subscribe(response => {
-    //     console.log(response);
-    //   });
   }
 
 

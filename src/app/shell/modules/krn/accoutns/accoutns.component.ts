@@ -18,14 +18,13 @@ export class AccoutnsComponent implements OnInit {
   accounts = [];
   isLoading = false;
   error: string;
-  constructor(private http: HttpClient, private accountsService: AccountsService, private clientService: ClientsService, private loader: LoaderService) { }
+  constructor(private http: HttpClient, private accountsService: AccountsService,
+              private clientService: ClientsService, private loader: LoaderService) { }
 
   ngOnInit(): void {
     this.onFetchAccounts();
   }
   onFetchAccounts() {
-    // this.fetchClients();
-    // console.log(this.fetchClients())
     this.accountsService.fetchClientAccounts(this.clientKey)
       .pipe((obs) => this.loader.useLoader(obs))
       .subscribe((accounts) => {

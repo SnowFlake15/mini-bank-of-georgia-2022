@@ -53,8 +53,6 @@ export class RegisterComponent implements OnInit {
     );
   }
   errors(controlName: string){
-    // console.log(typeof this.registerForm.get('password').value);
     return Object.values(this.get(controlName).errors);
   }
-  onSubmit(){}
 }

@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   error;
   @ViewChild(PlaceHolderDirective) alertPlaceHolder: PlaceHolderDirective;
   private closeSub: Subscription;
-  constructor(private router: Router, private authService: AuthService, private cfr: ComponentFactoryResolver, private errorMsg: ErrorMsg) { }
+  constructor(private router: Router, private authService: AuthService,
+              private cfr: ComponentFactoryResolver, private errorMsg: ErrorMsg) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -37,26 +38,15 @@ export class LoginComponent implements OnInit {
     const password = this.get('password').value;
     this.authService.login(userName, password).subscribe(
       (resData) => {
-        // console.log(resData)
         this.router.navigate(['/bpm/bpm000']);
       },
       (error) => {
-        // this.error = error;
-        // this.showError(error);
-        // Error.error = error;
-        // Error.showError(){}
         this.errorMsg.error.next(error);
 
       }
 
     );
     this.loginForm.reset();
-    // this.authService
-    //   .login(this.form.value.username, this.form.value.password)
-    //   .subscribe(
-    //     (res) => console.log(res),
-    //     (error) => (this.error = error)
-    //   );
   }
   initForm(){
     this.loginForm = new FormGroup({
@@ -66,25 +56,8 @@ export class LoginComponent implements OnInit {
     });
   }
   errors(controlName: string){
-    // return Object.values(this.get(controlName).errors);
     return this.get(controlName)?.errors
       ? Object.values(this.get(controlName).errors)
       : [];
   }
-  onCloseError(){
-    this.error = false;
-  }
-  showError(error){
-    const alertComponentFactory = this.cfr.resolveComponentFactory(AlertComponent);
-    this.alertPlaceHolder.viewContainerRef.clear();
-    const alertRef = this.alertPlaceHolder.viewContainerRef.createComponent(
-      alertComponentFactory
-    );
-    alertRef.instance.error = error;
-    this.closeSub = alertRef.instance.closeClick.subscribe( () => {
-      this.closeSub.unsubscribe();
-      this.alertPlaceHolder.viewContainerRef.clear();
-    });
-  }
-  onSubmit(){}
 }

@@ -14,20 +14,18 @@ import { Router } from '@angular/router';
 export class CreateAccountComponent implements OnInit {
   createAccount: FormGroup;
 
-  constructor(private http: HttpClient, private accountsService: AccountsService, private clientsService: ClientsService, private router: Router) { }
+  constructor(private http: HttpClient, private accountsService: AccountsService,
+              private clientsService: ClientsService, private router: Router) { }
 
   ngOnInit(): void {
     this.initForm();
     this.createAccount.value.clientKey = this.clientsService.selectedClient.clientKey;
-    // console.log(this.createAccount.value.clientKey)
-    // console.log(this.clientsService.selectedClient.clientKey)
   }
   get(controlName: string): AbstractControl{
     return this.createAccount.get(controlName);
   }
   initForm(){
     this.createAccount = new FormGroup({
-      // clientKey: new FormControl(undefined, [BgValidators.required]),
       accountName: new FormControl(undefined, [BgValidators.required, BgValidators.minLength(2), BgValidators.maxLength(30)]),
       amount: new FormControl(undefined, [BgValidators.required, BgValidators.min(0)]),
     });
@@ -43,7 +41,8 @@ export class CreateAccountComponent implements OnInit {
       return;
     }
     this.createAccount.value.clientKey = this.clientsService.selectedClient.clientKey;
-    this.accountsService.createAccount(this.clientsService.selectedClient.clientKey, this.createAccount.value.accountName, this.createAccount.value.amount).subscribe();
+    this.accountsService.createAccount(this.clientsService.selectedClient.clientKey,
+      this.createAccount.value.accountName, this.createAccount.value.amount).subscribe();
     this.createAccount.reset();
     this.router.navigate(['/krn/accounts/']);
   }

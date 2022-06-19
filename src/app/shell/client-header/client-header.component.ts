@@ -13,8 +13,5 @@ export class ClientHeaderComponent implements OnInit {
   client: ClientModel;
   ngOnInit(): void {
     this.client = this.clientsService.selectedClient;
-    console.log('=======');
-    console.log(this.clientsService.selectedClient);
-    console.log('=======');
   }
 }

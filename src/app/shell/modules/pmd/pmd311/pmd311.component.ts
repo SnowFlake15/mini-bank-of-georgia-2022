@@ -60,11 +60,6 @@ export class Pmd311Component implements OnInit {
     const amount = this.get('amount').value;
 
     this.accountsService.transfer(senderAccountKey, receiverAccountKey, amount)
-    //   .pipe(
-    //   switchMap(() => {
-    //     return this.clientsService.refreshClient();
-    //   })
-    // )
       .subscribe(
       (resData) => {
         this.router.navigate(['/krn/accounts/']);

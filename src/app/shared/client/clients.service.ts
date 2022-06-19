@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { ClientModel} from './client.model';
+import {BehaviorSubject} from 'rxjs';
+import {User} from '../auth/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientsService {
+  client = new BehaviorSubject<ClientModel>(undefined);
   selectedClient: ClientModel;
 
   constructor(private http: HttpClient) {
@@ -24,26 +27,4 @@ export class ClientsService {
   createClient(registerForm) {
     return this.http.put('clients', registerForm.value);
   }
-  fetchClient(){
-  }
-  // createClient(firstName: string, lastName: string, plusPoints: number){
-  //   const client = {
-  //     firstName, lastName, plusPoints
-  //   };
-  //   this.http.client<{id: number}>('https://bog-angular-course-api.herokuapp.com/clients', user)
-  //     .subscribe(response => {
-  //       console.log(response);
-  //     });
-  // }
-  // fetchUsers(){
-  //   return this.http.get<Client[]>('https://bog-angular-course-api.herokuapp.com/clients')
-  //     .pipe(
-  //       map((data) => {
-  //         data.forEach(item => {
-  //           item.validated = true;
-  //         });
-  //         return data;
-  //       })
-  //     ).subscribe(users => {})
-  // }
 }

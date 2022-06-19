@@ -20,12 +20,6 @@ export class AuthInterceptorService implements HttpInterceptor{
       })
       );
 
-    // console.log('interceptor works kinda');
-    // return next.handle(modifiedRequest).pipe(tap((event) => {
-    //   if (event.type === HttpEventType.Response){
-    //     console.log(event.body, 'event body');
-    //   }
-    // }));
   }
 
 }

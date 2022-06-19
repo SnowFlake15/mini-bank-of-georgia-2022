@@ -35,8 +35,6 @@ export class Bpm000Component implements OnInit {
   }
 
   onFetchClients() {
-    // this.fetchClients();
-    // console.log(this.fetchClients())
     this.clientsService.fetchClients(this.firstName, this.lastName, this.clientKey)
       .pipe((obs) => this.loader.useLoader(obs))
       .subscribe((clients) => {
